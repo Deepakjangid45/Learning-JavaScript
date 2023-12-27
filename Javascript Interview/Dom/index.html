@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <h1>Profile Photo</h1>
+    <input type="file" id="inputFile" onchange="changeProfile()">
+    <h3>Your profile Pitcher</h3>
+    <img id="photo" src="" alt="" width="200px">
+</body>
+<script>
+    const filePicer = document.getElementById("inputFile")
+    const image = document.getElementById("photo");
+    function changeProfile() {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            image.src = e.target.result;
+        };
+        reader.readAsDataURL(filePicer.files[0]);
+    }
+
+</script>
+
+</html>
